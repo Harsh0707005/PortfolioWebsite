@@ -1,10 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 
-const TypingAnimation = () => {
+const TypingAnimation = ({ onAnimationComplete }) => {
 
   const [input, setInput] = useState("")
   const [fadeIn, setFadein] = useState(false)
   const [typingAnimationComplete, setTypingAnimationComplete] = useState(false)
+  const [initialCoordinates, setinitialCoordinates] = useState({ x: 0, y: 0 });
+  const [skills, setSkills] = useState(["Android Developer"])
+  const [popId, setPopId] = useState("")
+  const skillIndex = useRef(0)
   const index = useRef(0)
 
   const handleInputChange = (e) => {
@@ -13,17 +18,34 @@ const TypingAnimation = () => {
   useEffect(() => {
     if (fadeIn && typingAnimationComplete) {
       const pop = () => {
-        document.getElementById('popup').innerText = input;
+        const popDiv = document.getElementById(popId);
+        popDiv.innerText = input;
+        let rect = popDiv.getBoundingClientRect();
+
+        setinitialCoordinates({
+          x: rect.x,
+          y: rect.y
+        })
+
         setTypingAnimationComplete(false)
         setInput("")
+        index.current=0;
+        skillIndex.current++;
       };
       pop();
     }
   }, [typingAnimationComplete]);
 
+  useEffect(()=> {if (popId!=="") {
+    onAnimationComplete({ newCoordinates: initialCoordinates, popId: popId })
+  }}, [initialCoordinates])
+
   useEffect(() => {
-    if (fadeIn) {
-      const typingText = "Android Developer";
+    // console.log(skills.at(skillIndex), skillIndex.current)
+    if (fadeIn && !typingAnimationComplete && index.current==0 && skillIndex.current<skills.length) {
+      // const typingText = "Android Developer";
+      setPopId(uuidv4())
+      let typingText = skills.at(skillIndex.current);
       const typingInterval = setInterval(() => {
         setInput(typingText.substring(0, index.current + 1));
         index.current++;
@@ -33,16 +55,21 @@ const TypingAnimation = () => {
         };
       }, 100);
       return () => {
-        clearInterval(typingInterval)
+        clearInterval(typingInterval, typingAnimationComplete)
       };
     }
-  }, [fadeIn])
+  }, [fadeIn, skillIndex.current])
+
+  // useEffect(()=>{
+  //   console.log(popId);
+  // }, [popId])
 
   return (
     <div id='hi2' className='flex flex-row w-[20%] min-w-[200px] relative border-2 rounded-lg px-2 py-1 animate-fade' onAnimationEnd={() => { setFadein(true)}}>
-      <input type="text" className='w-full bg-transparent outline-none' onChange={handleInputChange} value={input} autoFocus />
+      <input type="text" className='w-full bg-transparent outline-none' onChange={handleInputChange} value={input} autoFocus/>
       <span>↵&#9166;</span>
-      <div id='popup' className='absolute'></div>
+      <div id={popId} className='absolute'></div>
+      {/* {console.log(popId)} */}
     </div>
   )
 }
