@@ -4,11 +4,22 @@ const TypingAnimation = () => {
 
   const [input, setInput] = useState("")
   const [fadeIn, setFadein] = useState(false)
+  const [typingAnimationComplete, setTypingAnimationComplete] = useState(false)
   const index = useRef(0)
 
   const handleInputChange = (e) => {
     setInput(e.target.value)
   }
+  useEffect(() => {
+    if (fadeIn && typingAnimationComplete) {
+      const pop = () => {
+        document.getElementById('popup').innerText = input;
+        setTypingAnimationComplete(false)
+        setInput("")
+      };
+      pop();
+    }
+  }, [typingAnimationComplete]);
 
   useEffect(() => {
     if (fadeIn) {
@@ -16,7 +27,10 @@ const TypingAnimation = () => {
       const typingInterval = setInterval(() => {
         setInput(typingText.substring(0, index.current + 1));
         index.current++;
-        if (index.current === typingText.length) clearInterval(typingInterval);
+        if (index.current === typingText.length) {
+          clearInterval(typingInterval)
+          setTypingAnimationComplete(true)
+        };
       }, 100);
       return () => {
         clearInterval(typingInterval)
@@ -28,6 +42,7 @@ const TypingAnimation = () => {
     <div id='hi2' className='flex flex-row w-[20%] min-w-[200px] relative border-2 rounded-lg px-2 py-1 animate-fade' onAnimationEnd={() => { setFadein(true)}}>
       <input type="text" className='w-full bg-transparent outline-none' onChange={handleInputChange} value={input} autoFocus />
       <span>↵&#9166;</span>
+      <div id='popup' className='absolute'></div>
     </div>
   )
 }
