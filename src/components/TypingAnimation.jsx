@@ -77,9 +77,9 @@ const TypingAnimation = ({ onAnimationComplete }) => {
       }
       setFadein(true)
       }}>
-      <input type="text" className='font-jersey w-full bg-transparent outline-none' onChange={handleInputChange} value={input} autoFocus />
+      <input type="text" className='font-jersey w-full bg-transparent outline-none text-[20px]' onChange={handleInputChange} value={input} autoFocus />
       <span>↵&#9166;</span>
-      <div id="popup" className='absolute font-jersey'></div>
+      <div id="popup" className='absolute font-jersey text-[20px]'></div>
     </div>
   );
 };

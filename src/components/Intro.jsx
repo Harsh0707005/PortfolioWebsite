@@ -49,20 +49,20 @@ const Intro = () => {
   }, [finalCoordinates]);
 
   return (
-    <section className='flex flex-col justify-around items-center min-h-[400px] h-auto bg-black text-white p-5'>
+    <section className='flex flex-col justify-around items-center min-h-[400px] h-[100vh] bg-black text-white p-5'>
       <div className='flex items-center justify-evenly w-full max-md:flex-col-reverse max-md:gap-8'>
         <div className='flex flex-col items-center'>
-          <div className='text-center'>
+          <div className='text-center text-[20px]'>
             Hi,
             <br />
             I'm &nbsp;
-            <span className='font-jersey text-[30px] text-yellow-500'>
+            <span className='font-jersey text-[40px] text-yellow-500'>
               Harsh Master
             </span>
           </div>
-          <div id="skills" className='flex flex-row flex-wrap font-jersey w-full max-2xl:w-[400px] max-md:w-[90%] text-center justify-center'></div>
+          <div id="skills" className='flex flex-row flex-wrap font-jersey w-full max-2xl:w-[400px] p-8 text-center justify-center text-[20px]'></div>
         </div>
-        <img src={"/profile pic.png"} className='h-[250px] w-[250px] max-md:h-[30%] max-md:w-[30%]' alt="" />
+        <img src={"/profile pic.png"} className='max-h-[250px] max-md:max-h-[170px]' alt="" />
       </div>
       <TypingAnimation onAnimationComplete={handleAnimationComplete} />
     </section>
