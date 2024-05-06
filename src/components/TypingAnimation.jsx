@@ -6,7 +6,7 @@ const TypingAnimation = ({ onAnimationComplete }) => {
   const [fadeIn, setFadein] = useState(false);
   const [allAnimationComplete, setAllAnimationComplete] = useState(false)
   const [typingAnimationComplete, setTypingAnimationComplete] = useState(false);
-  const [skills, setSkills] = useState(["Android Developer", "Web Developer"]);
+  const [skills, setSkills] = useState(["Android Developer", "Web Developer", "Python", "Javascript", "Machine Learning"]);
   const [popId, setPopId] = useState('');
   const skillIndex = useRef(0);
   const index = useRef(0);
