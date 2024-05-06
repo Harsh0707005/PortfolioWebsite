@@ -11,14 +11,14 @@ const Intro = () => {
     const skillsDiv = document.getElementById('skills');
     const rect = popDiv.getBoundingClientRect();
 
-    if(skillsDiv.lastChild)    console.log(skillsDiv.lastChild.getBoundingClientRect())
+    if (skillsDiv.lastChild) console.log(skillsDiv.lastChild.getBoundingClientRect())
     setInitialCoordinates({
       x: rect.x,
       y: rect.y
     });
     // console.log(skillsDiv.offsetWidth)
     setFinalCoordinates({
-      x: skillsDiv.lastChild ? (skillsDiv.lastChild.getBoundingClientRect().x + skillsDiv.lastChild.offsetWidth +5) : skillsDiv.getBoundingClientRect().x,
+      x: skillsDiv.lastChild ? (skillsDiv.lastChild.getBoundingClientRect().x + skillsDiv.lastChild.offsetWidth + 5) : skillsDiv.getBoundingClientRect().x,
       y: skillsDiv.lastChild ? skillsDiv.lastChild.getBoundingClientRect().y : skillsDiv.getBoundingClientRect().y,
     });
     setPopId(popId);
@@ -31,8 +31,8 @@ const Intro = () => {
       let dx = finalCoordinates.x - initialCoordinates.x;
       let dy = finalCoordinates.y - initialCoordinates.y;
       const popup = document.getElementById(popId);
-      if(!skillsDiv.lastChild){
-        dx = dx + (skillsDiv.offsetWidth/2) - (popup.offsetWidth/2);
+      if (!skillsDiv.lastChild) {
+        dx = dx + (skillsDiv.offsetWidth / 2) - (popup.offsetWidth / 2);
       }
       popup.style.transition = 'transform 1.5s ease';
       popup.style.transform = `translate(${dx}px, ${dy}px)`;
