@@ -4,8 +4,9 @@ import { v4 as uuidv4 } from 'uuid';
 const TypingAnimation = ({ onAnimationComplete }) => {
   const [input, setInput] = useState('');
   const [fadeIn, setFadein] = useState(false);
+  const [allAnimationComplete, setAllAnimationComplete] = useState(false)
   const [typingAnimationComplete, setTypingAnimationComplete] = useState(false);
-  const [skills, setSkills] = useState(["Android Developer", "Web Developer", "Python", "Javascript", "Machine Learning"]);
+  const [skills, setSkills] = useState(["Android Developer", "Web Developer"]);
   const [popId, setPopId] = useState('');
   const skillIndex = useRef(0);
   const index = useRef(0);
@@ -28,6 +29,17 @@ const TypingAnimation = ({ onAnimationComplete }) => {
   }, [fadeIn, typingAnimationComplete]);
 
   useEffect(() => {
+    if (allAnimationComplete) { 
+      setTimeout(() => {
+        document.getElementById("typeTextDiv").classList.remove('animate-fadeIn');
+        document.getElementById("typeTextDiv").classList.add('animate-fadeOut');
+      }, 1000)
+    }}, [allAnimationComplete])
+
+  useEffect(() => {
+    if (skillIndex.current===(skills.length)){
+      setAllAnimationComplete(true)
+    }
     if (fadeIn && !typingAnimationComplete && index.current === 0 && skillIndex.current < skills.length) {
       setPopId(uuidv4());
       let typingText = skills[skillIndex.current];
@@ -59,7 +71,12 @@ const TypingAnimation = ({ onAnimationComplete }) => {
   }, [popId])
 
   return (
-    <div id="typeTextDiv" className='flex flex-row w-[20%] min-w-[200px] relative border-2 rounded-lg px-2 py-1 animate-fade' onAnimationEnd={() => setFadein(true)}>
+    <div id="typeTextDiv" className='flex flex-row w-[20%] min-w-[200px] relative border-2 rounded-lg px-2 py-1 animate-fadeIn' onAnimationEnd={() => {
+      if(fadeIn){
+        document.getElementById("typeTextDiv").style.visibility="hidden";
+      }
+      setFadein(true)
+      }}>
       <input type="text" className='font-jersey w-full bg-transparent outline-none' onChange={handleInputChange} value={input} autoFocus />
       <span>↵&#9166;</span>
       <div id="popup" className='absolute font-jersey'></div>

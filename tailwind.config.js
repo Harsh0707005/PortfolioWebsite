@@ -10,15 +10,20 @@ export default {
         jersey: ['"Jersey 25"']
       },
       animation: {
-        fade: 'fadeIn 3s ease-in-out',
+        fadeIn: 'fadeIn 3s ease-in-out',
+        fadeOut: 'fadeOut 3s ease-in-out',
       },
 
       // that is actual animation
-      keyframes: theme => ({
+      keyframes: () => ({
         fadeIn: {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
+        fadeOut:{
+          '0%': {opacity: 1},
+          '100%': {opacity: 0}
+        }
       }),
     },
   },

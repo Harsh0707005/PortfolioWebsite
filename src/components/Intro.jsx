@@ -52,7 +52,7 @@ const Intro = () => {
               Harsh Master
             </span>
           </div>
-          <div id="skills" className='flex flex-row flex-wrap font-jersey w-fit'></div>
+          <div id="skills" className='flex flex-row flex-wrap font-jersey w-fit text-center'></div>
         </div>
         <img src={"/profile pic.png"} className='h-[250px] w-[250px] max-md:h-[30%] max-md:w-[30%]' alt="" />
       </div>
