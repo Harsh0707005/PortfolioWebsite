@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
-import PageTitle from './PageTitle';
 
 const ProjectsList = () => {
-    const { projectFor } = useParams()
+    const { projectFor } = useParams();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
     const projects = {
         "html-css": [{ "title": "Simple Berkshire Hathaway revamp", "description": "A redesigned version of Berkshire Hathaway website while keeping the essence intact", "image": "/html-css/berkshire.png" }, { "title": "Netflix Clone", "description": "Clone of Netflix website using pure HTML CSS", "image": "/html-css/netflix.png" }, { "title": "Snapchat Clone", "description": "Clone of Snapchat website", "image": "/html-css/snapchat.png" }, { "title": "UltraEdit", "description": "Clone of UltraEdit website", "image": "/html-css/ultraedit.png" }], "fullstack-react": [{ "title": "Quakky Quizzy", "description": "A platform to create and take quizzes", "image": "/fullStack/quakkyquizzy.png" }, { "title": "TwitchIn (Under Development)", "description": "A combination of Linkedin and Twitch with real-time search feature (search for users on Linkedin)", "image": "/fullStack/twitchin.png" }], "android": [{ "title": "Attendance Buddy", "description": "An app to keep track of attendance for students with attendance overviews with intuitive pie charts", "image": "/android/attendancebuddy.png" }, {
