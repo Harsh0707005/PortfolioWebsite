@@ -11,8 +11,8 @@ const ProjectsList = () => {
 
     return(
         <div className = 'p-[30px]' >
-            <h1>Projects List</h1>
-            <p>Project for: {projectFor}</p>
+            {/* <h1>Projects List</h1>
+            <p>Project for: {projectFor}</p> */}
 
             <div className='flex flex-col gap-[20px]'>
 
