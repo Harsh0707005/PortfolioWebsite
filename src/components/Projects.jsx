@@ -2,7 +2,7 @@ import React from 'react'
 
 const Projects = () => {
     return (
-        <div className='bg-black text-white flex flex-col items-center p-[30px] gap-[40px]'>
+        <div className='bg-black text-white flex flex-col items-center p-[60px] gap-[70px]'>
             <p className='font-bold text-5xl'>Projects</p>
             <div className='grid grid-cols-3 mobile:grid-cols-1 gap-[30px]'>
 
