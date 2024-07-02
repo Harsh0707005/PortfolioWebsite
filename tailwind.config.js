@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'mobile': {'max': '576px'},
+      },
       fontFamily:{
         jersey: ['"Jersey 25"']
       },

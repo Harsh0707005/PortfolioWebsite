@@ -3,7 +3,7 @@ import React from 'react'
 const About = () => {
   return (
     <section className='bg-white text-black flex flex-col justify-center items-center gap-[15px] p-[30px] text-center'>
-      <p className='font-bold text-2xl'>About Me</p>
+      <p className='font-bold text-5xl'>About Me</p>
       <div className='flex flex-col gap-[10px] w-[85%]'>
 
         <span>I started my programming journey around 3 years back with Python with the motive to develop 2D games using Pygame, soon this hobby turned into a passion, pursuing which gave me this incredible sense of fulfilment and satisfaction. Following which, I continued to explore about App and Web development and learnt languages & libraries like Java, HTML, CSS, Javascript, React JS and backend Databases like MongoDB.</span>
