@@ -4,10 +4,12 @@ import { useParams } from 'react-router-dom';
 const ProjectsList = () => {
     const { projectFor } = useParams()
 
-    const projects = { "html-css": [{ "title": "Simple Berkshire Hathaway revamp", "description": "A redesigned version of Berkshire Hathaway website while keeping the essence intact", "image": "/html-css/berkshire.png"}, { "title": "Netflix Clone", "description": "Clone of Netflix website using pure HTML CSS", "image" : "/html-css/netflix.png"}, {"title": "Snapchat Clone", "description" : "Clone of Snapchat website", "image" : "/html-css/snapchat.png"}, {"title" : "UltraEdit", "description" : "Clone of UltraEdit website", "image" : "/html-css/ultraedit.png"}]}
+    const projects = {
+        "html-css": [{ "title": "Simple Berkshire Hathaway revamp", "description": "A redesigned version of Berkshire Hathaway website while keeping the essence intact", "image": "/html-css/berkshire.png" }, { "title": "Netflix Clone", "description": "Clone of Netflix website using pure HTML CSS", "image": "/html-css/netflix.png" }, { "title": "Snapchat Clone", "description": "Clone of Snapchat website", "image": "/html-css/snapchat.png" }, { "title": "UltraEdit", "description": "Clone of UltraEdit website", "image": "/html-css/ultraedit.png" }], "fullstack-react": [{ "title": "Quakky Quizzy", "description": "A platform to create and take quizzes", "image": "/fullStack/quakkyquizzy.png" }, { "title": "TwitchIn (Under Development)", "description": "A combination of Linkedin and Twitch with real-time search feature (search for users on Linkedin)", "image": "/fullStack/twitchin.png" }], "android": [{ "title": "Attendance Buddy", "description": "An app to keep track of attendance for students with attendance overviews with intuitive pie charts", "image": "/android/attendancebuddy.png" }, {
+            "title": "Campus Friends", "description": "Developed an app for E - learning and built Learning Management System for easy administration. Built skill for smooth integration of Android App with Firebase.", "image" : "/android/campusfriends.png"}]}
 
-    return (
-        <div className='p-[30px]'>
+    return(
+        <div className = 'p-[30px]' >
             <h1>Projects List</h1>
             <p>Project for: {projectFor}</p>
 
@@ -41,7 +43,7 @@ const ProjectsList = () => {
             ))}
             </div>
 
-        </div>
+        </div >
     )
 }
 
