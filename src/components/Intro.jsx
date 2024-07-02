@@ -50,7 +50,7 @@ const Intro = () => {
 
   return (
     <section className='flex flex-col justify-around items-center min-h-[400px] h-[100vh] bg-black text-white p-5'>
-      <div className='flex items-center justify-evenly w-full max-md:flex-col-reverse max-md:gap-8'>
+      <div className='flex items-center justify-evenly w-full mobile:flex-col-reverse mobile:gap-8'>
         <div className='flex flex-col items-center'>
           <div className='text-center text-[20px]'>
             Hi,
