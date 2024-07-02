@@ -11,7 +11,7 @@ const Intro = () => {
     const skillsDiv = document.getElementById('skills');
     const rect = popDiv.getBoundingClientRect();
 
-    if (skillsDiv.lastChild) console.log(skillsDiv.lastChild.getBoundingClientRect())
+    // if (skillsDiv.lastChild) console.log(skillsDiv.lastChild.getBoundingClientRect())
     setInitialCoordinates({
       x: rect.x,
       y: rect.y
