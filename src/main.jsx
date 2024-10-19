@@ -10,18 +10,20 @@ import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 import ProjectsList from './components/ProjectsList.jsx'
 import PageTitle from './components/PageTitle.js'
+import SocialBottomNavBar from './components/SocialBottomNavBar.jsx'
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <>
+        element: <div className='w-full'>
             <PageTitle title="Home" />
             <Intro />
             <About />
             <Projects />
             <Contact />
             <Footer />
-        </>
+            <SocialBottomNavBar/>
+        </div>
     },
     {
         path: "/projects/:projectFor",

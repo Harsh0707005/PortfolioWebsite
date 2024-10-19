@@ -13,7 +13,7 @@ export default {
         jersey: ['"Jersey 25"']
       },
       animation: {
-        fadeIn: 'fadeIn 3s ease-in-out',
+        fadeIn: 'fadeIn 2s ease-in-out',
         fadeOut: 'fadeOut 3s ease-in-out',
       },
 
