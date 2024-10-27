@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <div className='w-full'>
-            <PageTitle title="Home" />
+            {/* <PageTitle " /> */}
             <Intro />
             <About />
             <Projects />
